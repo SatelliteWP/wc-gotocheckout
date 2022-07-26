@@ -9,6 +9,7 @@
 
 if ( ! defined( 'ABSPATH' ) ) die( 'No' );
 
+
 /**
  * Skip the cart and redirect to checkout
  *
@@ -20,10 +21,11 @@ if ( ! defined( 'ABSPATH' ) ) die( 'No' );
 function swp_woocommerce_add_to_cart_redirect( $url, $product ) {
 	
 	// Redirect to checkout if ?gotocheckout=true is found in the URL
+	// To use it: /?add-to-cart=25&quantity=1&gotocheckout=true
 	if ( isset( $_GET['gotocheckout'] ) && $_GET['gotocheckout'] == 'true' ) {
 		return wc_get_checkout_url();
 	}
 	
 	return $url;
 }
-add_filter( 'woocommerce_add_to_cart_redirect', 'swp_woocommerce_add_to_cart_redirect', 10, 2 );
+add_filter( 'woocommerce_add_to_cart_redirect', 'swp_woocommerce_add_to_cart_redirect', 50, 2 );
