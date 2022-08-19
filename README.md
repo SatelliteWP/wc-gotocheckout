@@ -1,4 +1,4 @@
-# wc-gotocheckout
+# Go to checkout for WooCommerce
 Send the visitor to the checkout page of your WooCommerce store
 
 ## Usage
